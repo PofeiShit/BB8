@@ -145,6 +145,7 @@ if __name__ == '__main__':
     #net = load_net('./savedNets/BB8_tiny')
     for obj_name in obj_names:
         errs_2d = test_dataset(obj_name, path_dataset, h, w, net)
-        px_threshold = 5
-        acc = len(np.where(np.array(errs_2d) <= px_threshold)[0]) * 100. / len(errs_2d)
-        print('Acc using {} px 2D Projection on {} = {:.2f}%'.format(px_threshold, obj_name, acc))
+        if errs_2d:
+            px_threshold = 5
+            acc = len(np.where(np.array(errs_2d) <= px_threshold)[0]) * 100. / len(errs_2d)
+            print('Acc using {} px 2D Projection on {} = {:.2f}%'.format(px_threshold, obj_name, acc))
