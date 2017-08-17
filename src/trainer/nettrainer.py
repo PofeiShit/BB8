@@ -517,10 +517,10 @@ class NetTrainer(object):
         import signal
         signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-    def load_para(self, config, func, num_process=10):
+    def load_para(self, config, func, nb_process=10):
         queue_l2t = config['queue_l2t']
         queue_t2l = config['queue_t2l']
-        pool = Pool(num_process, self.init_worker)
+        pool = Pool(nb_process, self.init_worker)
 
         while True and (not self.killer.kill_now):
             if queue_t2l.empty():
@@ -529,7 +529,6 @@ class NetTrainer(object):
                 msg = queue_t2l.get()
                 if msg == 'training':
                     pool.map(func, zip(range(self.training_set_x.shape[0]),
-                    #pool.map(func, zip(range(num_process),
                                       itertools.repeat(self.training_set_x),
                                        itertools.repeat(self.training_set_y)))
                     queue_l2t.put('load_done')
@@ -562,7 +561,7 @@ class NetTrainer(object):
         import warnings
         warnings.filterwarnings("ignore")
 
-    def train_para(self, nb_epoch, function_para):
+    def train_para(self, nb_epoch, function_para, nb_process):
 
         self.config = {}
         self.config['queue_l2t'] = Queue(1)
@@ -570,7 +569,8 @@ class NetTrainer(object):
         self.config['queue_t2l'].put('training')
 
         load_proc = Process(target=self.load_para, args=(self.config,
-                                                         function_para))
+                                                         function_para,
+                                                         nb_process))
 
         load_proc.start()
         self.train(nb_epoch)

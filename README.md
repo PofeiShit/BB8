@@ -21,7 +21,7 @@ M. Rad, and V. Lepetit. BB8: A Scalable, Accurate, Robust to Partial Occlusion M
 or the [project page](https://www.tugraz.at/institute/icg/research/team-lepetit/research-projects/3d-pose-estimation/).
 
 ## Setup:
-  * Put dataset files into ./data. We provide the [Cat data](https://files.icg.tugraz.at/f/d7bde012c5/) which contains some images of the Cat of the LINEMOD dataset (Hinterstoisser et al.) in the format our code requires. Download the full dataset from [here](https://files.icg.tugraz.at/f/472f5d1108/), or for the original dataset visit http://campar.in.tum.de/Main/StefanHinterstoisser. For more info see [dataset info](./data/LINEMOD/dataset_info.md).
+  * Put dataset files into ./data. We provide the [Cat data](https://files.icg.tugraz.at/f/d7bde012c5/) which contains some images of the Cat of the LINEMOD dataset (Hinterstoisser et al.) in the format our code requires. Unzip the file and put it in: ./data/LINEMOD/objects/ or download the full dataset from [here](https://files.icg.tugraz.at/f/472f5d1108/). For the original dataset visit http://campar.in.tum.de/Main/StefanHinterstoisser. For more info see [dataset info](./data/LINEMOD/dataset_info.md).
   * Goto ./src and see the generate_data.py file parameters to generate data. Set the bg_path to directory of background images (ImageNet). Change load_objs_to_memory function, regarding the objects of the interest and the dataset, which you want to use.
 
 
@@ -29,7 +29,7 @@ or the [project page](https://www.tugraz.at/institute/icg/research/team-lepetit/
 For training BB8, we use first 7 pre-trained VGG-16 convolutional weights. You can download the weights [here](https://files.icg.tugraz.at/f/8d1c0e3017/), and put it in the weights directory (./weights).
 Train BB8 using following command:
 ```
-python src/train.py --config bb8.yaml
+python src/train.py --config src/bb8.yaml
 ```
 Note that if there is only one object of interest, we can replace VGG-16 by a simpler architecture BB8-tiny, the computation time then become less, with similar accuracy.
 
@@ -37,7 +37,7 @@ Note that if there is only one object of interest, we can replace VGG-16 by a si
 ## Train BB8-tiny:
 Train BB8-Tiny using following command:
 ```
-python src/train.py --config bb8_tiny.yaml
+python src/train.py --config src/bb8_tiny.yaml
 ```
 
 ## Test BB8:

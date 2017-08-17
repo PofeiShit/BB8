@@ -48,6 +48,7 @@ class Network:
         self.train_set_para = None
 
         self.config = None
+        self.nb_process = 10
 
     def setup_from_config(self):
         if self.config is not None:
@@ -128,7 +129,8 @@ class Network:
 
     def train_para(self):
         self.trainer.train_para(int(self.nb_epoch),
-                                self.create_training.create_data)
+                                self.create_training.create_data,
+                                int(self.nb_process))
 
 
     def save(self):
@@ -162,7 +164,7 @@ def help():
     print('optimizer = MOMENTUM')
     print('nb_epoch = 300')
     print('network_name=Date')
-    print('para = (True = 1), (false = 0)')
+    print('nb_process=10')
     import sys
     sys.exit(0)
 

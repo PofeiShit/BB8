@@ -7,11 +7,12 @@ learning_rate: 0.001
 # -------------------------------
 steps: 40 100 120
 scales: 10 0.1 0.1
-nb_epoch: 1
+nb_epoch: 150
 validation_size: 5000
 # ================= PARA =================
-nb_training: 15000
+nb_training: 150000
 train_set_para: ./generate_data
+nb_process: 10  # number of processes for online data augmentation
 # ================= NAME =================
 network_name: BB8_tiny
 save_path: ./savedNets
