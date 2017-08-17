@@ -12,7 +12,7 @@ validation_size: 5000
 # ================= PARA =================
 nb_training: 150000
 train_set_para: ./generate_data
-nb_process: 10  # number of processes for online data augmentation
+nb_process: 6  # number of processes for online data augmentation
 # ================= NAME =================
 network_name: BB8
 save_path: ./savedNets
