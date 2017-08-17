@@ -1,0 +1,17 @@
+type: 1  # REGRESSOR
+# ================= NETWORK =================
+network_model: 0
+batch_size: 128
+optimizer: MOMENTUM
+learning_rate: 0.001
+# -------------------------------
+steps: 40 100 120
+scales: 10 0.1 0.1
+nb_epoch: 1
+validation_size: 5000
+# ================= PARA =================
+nb_training: 15000
+train_set_para: ./generate_data
+# ================= NAME =================
+network_name: BB8_tiny
+save_path: ./savedNets

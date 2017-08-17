@@ -1,0 +1,8 @@
+# Hinterstoisser et al. (ACCV 2012)
+# Intrinsic camera parameters
+width: 640
+height: 480
+fx: 572.4114
+fy: 573.5704
+cx: 325.2611
+cy: 242.0489
