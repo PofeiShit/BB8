@@ -1,0 +1,15 @@
+ape		0.0974298
+benchvise	0.286908
+bowl		0.171185
+can		0.193416
+cam		0.171593
+cat		0.152633
+cup		0.125961
+lamp		0.285155
+driller		0.259425
+duck		0.107131
+phone		0.208394
+iron		0.303153
+eggbox		0.176364
+glue		0.164857
+holepuncher	0.148204
